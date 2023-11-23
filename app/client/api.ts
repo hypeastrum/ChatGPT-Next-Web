@@ -1,5 +1,10 @@
 import { getClientConfig } from "../config/client";
-import { ACCESS_CODE_PREFIX, Azure, ServiceProvider } from "../constant";
+import {
+  ACCESS_CODE_PREFIX,
+  Azure,
+  REPO_URL,
+  ServiceProvider,
+} from "../constant";
 import { ChatMessage, ModelType, useAccessStore } from "../store";
 import { ChatGPTApi } from "./platforms/openai";
 
@@ -92,8 +97,7 @@ export class ClientApi {
       .concat([
         {
           from: "human",
-          value:
-            "Share from [ChatGPT Next Web]: https://github.com/Yidadaa/ChatGPT-Next-Web",
+          value: `Share from [ChatGPT Next Web]: ${REPO_URL}`,
         },
       ]);
     // 敬告二开开发者们，为了开源大模型的发展，请不要修改上述消息，此消息用于后续数据清洗使用
