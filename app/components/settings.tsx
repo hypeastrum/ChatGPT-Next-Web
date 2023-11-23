@@ -585,7 +585,7 @@ export function Settings() {
     const isOpenAiUrl = accessStore.openaiUrl.includes(OPENAI_BASE_URL);
     return (
       accessStore.hideBalanceQuery ||
-      isOpenAiUrl ||
+      !isOpenAiUrl ||
       accessStore.provider === ServiceProvider.Azure
     );
   }, [
