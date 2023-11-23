@@ -2,6 +2,7 @@ import { getClientConfig } from "../config/client";
 import {
   ACCESS_CODE_PREFIX,
   Azure,
+  DEFAULT_CORS_HOST,
   REPO_URL,
   ServiceProvider,
 } from "../constant";
@@ -106,7 +107,7 @@ export class ClientApi {
     console.log("[Share]", messages, msgs);
     const clientConfig = getClientConfig();
     const proxyUrl = "/sharegpt";
-    const rawUrl = "https://sharegpt.com/api/conversations";
+    const rawUrl = `${DEFAULT_CORS_HOST}/api/conversations`;
     const shareUrl = clientConfig?.isApp ? rawUrl : proxyUrl;
     const res = await fetch(shareUrl, {
       body: JSON.stringify({
